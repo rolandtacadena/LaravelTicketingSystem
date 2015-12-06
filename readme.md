@@ -6,9 +6,8 @@
 * [How to install](#feature3)
 * [Application Structure](#feature4)
 * [Troubleshooting](#feature5)
-* [License](#feature6)
-* [Additional information](#feature7)
-* [How Starter site is look like](#feature8)
+* [Additional information](#feature6)
+* [How Starter site is look like](#feature7)
 
 <a name="feature1"></a>
 ## Laravel Ticketing System Site Features:
@@ -132,21 +131,14 @@ OR
 This is free software distributed under the terms of the MIT license
 
 -----
-<a name="feature7"></a>
+<a name="feature6"></a>
 ## Additional information
 
 ----
-<a name="feature8"></a>
-##How Laravel PHP Framework Site is look like
+<a name="feature7"></a>
+##How Laravel Ticketing System Site look like
 
-![Backlog Tickets](http://imgur.com/leCVgUd)
-![Updating Ticket](http://imgur.com/tpLPDV1)
-![Adding Ticket](http://imgur.com/4tqGbnZ)
-![Tickets by User](http://imgur.com/aS6m0NU)
-![Open Tickets](http://imgur.com/hrKXgTq)
-![Closed Tickets](http://imgur.com/cat98h1)
-![Register](http://imgur.com/D92xb7V)
-![Login](http://imgur.com/6wBFLW6)
+<a href="http://imgur.com/a/xiyiG">View Screenshots of the project</a>
 
 ----
 
