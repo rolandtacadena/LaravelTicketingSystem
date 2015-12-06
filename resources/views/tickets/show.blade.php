@@ -25,26 +25,26 @@
             </ul>
         </div>
         <hr/>
-        <div class="ticket-hist">
-            <h5>Ticket History</h5>
-            <div class="hist">
-                <ul>
-                    <li>Changed owner to <i>rtacadena</i></li>
-                    <li>Set dev % complete to <i>100%</i></li>
-                </ul>
-                <hr/>
-                <ul>
-                    <li>Changed owner to <i>rtacadena</i></li>
-                    <li>Set dev % complete to <i>100%</i></li>
-                </ul>
-                <hr/>
-                <ul>
-                    <li>Changed owner to <i>rtacadena</i></li>
-                    <li>Set dev % complete to <i>100%</i></li>
-                </ul>
-                <hr/>
-            </div>
-        </div>
+        {{--<div class="ticket-hist">--}}
+            {{--<h5>Ticket History</h5>--}}
+            {{--<div class="hist">--}}
+                {{--<ul>--}}
+                    {{--<li>Changed owner to <i>rtacadena</i></li>--}}
+                    {{--<li>Set dev % complete to <i>100%</i></li>--}}
+                {{--</ul>--}}
+                {{--<hr/>--}}
+                {{--<ul>--}}
+                    {{--<li>Changed owner to <i>rtacadena</i></li>--}}
+                    {{--<li>Set dev % complete to <i>100%</i></li>--}}
+                {{--</ul>--}}
+                {{--<hr/>--}}
+                {{--<ul>--}}
+                    {{--<li>Changed owner to <i>rtacadena</i></li>--}}
+                    {{--<li>Set dev % complete to <i>100%</i></li>--}}
+                {{--</ul>--}}
+                {{--<hr/>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="update-ticket">
             <div class="ticket-form">
                 {!! Form::model($ticket, ['method' => 'PUT', 'action' => ['TicketsController@update', $ticket->id]]) !!}
