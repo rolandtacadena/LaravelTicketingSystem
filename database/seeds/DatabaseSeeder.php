@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
 
         // Add calls to Seeders here
         $this->call(UsersTableSeeder::class);
+        $this->call(BacklogsTableSeeder::class);
         $this->call(TicketsTableSeeder::class);
         $this->call(CommentsTableSeeder::class);
-        $this->call(BacklogsTableSeeder::class);
 
         Model::reguard();
     }

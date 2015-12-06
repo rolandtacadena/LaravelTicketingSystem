@@ -39,7 +39,7 @@ $factory->define(App\Backlog::class, function (Faker\Generator $faker) {
  */
 $factory->define(App\Ticket::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->numberBetween(1, 10),
+        'user_id' => $faker->numberBetween(1, 2),
         'backlog_id' => $faker->numberBetween(1, 5),
         'title' => $faker->text(),
         'description' => $faker->sentence(),
@@ -57,8 +57,8 @@ $factory->define(App\Ticket::class, function (Faker\Generator $faker) {
 $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     return [
         'comment' => $faker->sentence(),
-        'user_id' => $faker->numberBetween(1, 10),
-        'ticket_id' => $faker->numberBetween(1, 100),
+        'user_id' => 1,
+        'ticket_id' => 1,
     ];
 });
 
