@@ -13,7 +13,7 @@
 
         <div class="ticket-form">
             {!! Form::model($ticket = new \App\Ticket, ['url' => 'tickets']) !!}
-                @include('tickets.form', ['submiButtonText' => 'Create Article', 'formLabel' => 'Create Ticket'])
+                @include('tickets.form', ['submiButtonText' => 'Create Ticket', 'formLabel' => 'Create Ticket'])
             {!! Form::close() !!}
         </div>
     </div>

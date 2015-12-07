@@ -14,7 +14,7 @@
 
         <div class="ticket-form">
             {!! Form::model($ticket, ['method' => 'PUT', 'action' => ['TicketsController@update', $ticket->id]]) !!}
-                @include('tickets.form', ['submiButtonText' => 'Update Article', 'formLabel' => 'Edit Ticket'])
+                @include('tickets.form', ['submiButtonText' => 'Update Ticket', 'formLabel' => 'Edit Ticket'])
             {!! Form::close() !!}
         </div>
     </div>
