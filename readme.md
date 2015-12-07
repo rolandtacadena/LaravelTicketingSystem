@@ -93,7 +93,7 @@ And to initial populate database use this:
 
     php artisan db:seed
 
-If you install on your localhost in folder laravel5startersite, you can type on web browser:
+If you install on your localhost in folder laravelticketing, you can type on web browser:
 
 	http://localhost/laravelticketing/public
 -----
