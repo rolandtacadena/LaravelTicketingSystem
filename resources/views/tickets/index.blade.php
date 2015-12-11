@@ -5,10 +5,16 @@
         <!-- left nav -->
         @include('layouts._leftnav')
 
+
+
         <!--right side navigation-->
         <div id="ticket-table" class="large-10 medium-9 columns">
             <!--filter navigation-->
             @include('layouts._filternav')
+
+            <!-- flash message for created ticket -->
+            @include('partials.flash')
+
             <hr/>
 
             @if(count($tickets) > 0)

@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 class TicketsController extends Controller
 {
@@ -77,6 +78,7 @@ class TicketsController extends Controller
     {
         $ticket = Ticket::findOrFail($id);
         $ticket->update($request->all());
+        session()->flash('flash_message', 'You have successfully updated the ticket');
         return redirect()->route('ticket_show', [$ticket]);
 
     }
@@ -153,6 +155,10 @@ class TicketsController extends Controller
     {
         $input = $request->all();
         Ticket::create($input);
-        return redirect('/tickets/');
+
+        return redirect('/tickets/')->with([
+            'flash_message' => 'You have successfully updated the ticket',
+            'flash_message_important' => true
+        ]);
     }
 }

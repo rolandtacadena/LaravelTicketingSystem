@@ -9,6 +9,11 @@
         <!--filter navigation-->
         @include('layouts._filternav')
 
+        <!-- flash message for updated ticket -->
+        @include('partials.flash')
+
+        <hr/>
+
         <!-- include errors -->
         @include('errors.list')
 
