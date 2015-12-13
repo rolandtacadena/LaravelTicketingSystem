@@ -18,6 +18,9 @@
         @include('errors.list')
 
         <h5 class="subheader"><a href="{{ $ticket->id }}">#{{ $ticket->id . " " . $ticket->title }}</a></h5>
+        @can('my-ticket', $ticket)
+            <p>-<b>Please note that this ticket belongs to you.</b></p>
+        @endcan
         <div class="ticket-prop">
             <ul>
                 <li>Ticket Description: <span>{{ $ticket->description }}</span></li>
@@ -81,14 +84,29 @@
             <p>In order to create comment for this ticket, you must be logged in. <a href="{{ url('auth/login') }}">Log in</a> or
                 <a href="{{ url('auth/register') }}">Register</a></p>
         @endif
+
         <div class="comment-list">
-            <h5 class="subheader">Ticket Comments ({{ count($comments_for_ticket) }})</h5>
+            <h5 class="subheader">Ticket Comments ({{ count($ticket->comments) }})</h5>
             <ul>
-                @foreach($comments_for_ticket as $comment)
+                @foreach($ticket->comments as $comment)
                     <li><span>{{ $comment->comment }}</span> - <i><a href="{{ url('/tickets/user', $comment->user_id) }}">{{ $comment->user->name }}</a></i></li>
                 @endforeach
             </ul>
         </div>
+
         <hr/>
+
+        <!-- delete ticket button -->
+        <!-- currently only user with 'admin' role can delete ticket -->
+        @can('delete-post', $ticket)
+        {!! Form::open(['method' => 'DELETE', 'action' => ['TicketsController@destroy', $ticket->id]]) !!}
+        <div class="row">
+            <div class="large-12 columns">
+                {!! Form::submit('Delete Ticket', ['class' => 'right button tiny']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
+        @endcan
+
     </div>
 @endsection
