@@ -28,7 +28,7 @@
                 <li class="has-dropdown">
                     <a href="">{{ Auth::user()->name }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ url('/user/profile', str_replace(' ', '', Auth::user()->name)) }}">Profile</a></li>
+                        <li><a href="{{ url('/user/profile') }}">Profile</a></li>
                         <li><a href="{{ url('/user/settings/') }}">Settings</a></li>
                         <li class="divider"></li>
                     </ul>

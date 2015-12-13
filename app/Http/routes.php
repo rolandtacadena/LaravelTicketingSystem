@@ -3,8 +3,8 @@
 
 Route::group(['middleware' => ['auth']], function()
 {
-    Route::get('/user/profile/{id}', 'UsersController@index');
-    Route::get('/user/settings/', 'UsersController@index');
+    Route::get('/user/profile', 'UsersController@profile');
+    Route::get('/user/settings/', 'UsersController@settings');
     Route::get('/ticket/create', 'TicketsController@create');
     Route::get('/ticket/{id}/edit', 'TicketsController@edit')
         ->where('id', '[0-9]+');
@@ -13,6 +13,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/ticket/{id}', 'CommentsController@store')
         ->where('id', '[0-9]+');
     Route::get('/admin', 'UsersController@admin');
+    Route::delete('/ticket/{id}', 'TicketsController@destroy');
 });
 
 Route::get('/', 'TicketsController@all');
