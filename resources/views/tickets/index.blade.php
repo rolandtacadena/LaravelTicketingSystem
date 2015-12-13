@@ -5,8 +5,6 @@
         <!-- left nav -->
         @include('layouts._leftnav')
 
-
-
         <!--right side navigation-->
         <div id="ticket-table" class="large-10 medium-9 columns">
             <!--filter navigation-->
@@ -53,7 +51,6 @@
                 @include('layouts._filternav')
                 <hr/>
                 {!! str_replace('/?', '?', $tickets->render()) !!}
-                <hr/>
             @else
                 <h4 class="subheader">Sorry there were no tickets returned.</h4>
             @endif

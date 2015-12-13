@@ -10,10 +10,26 @@ use App\Http\Controllers\Controller;
 class UsersController extends Controller
 {
     /**
-     * Initial page for admib
+     * Initial page for admin
      */
     public function admin()
     {
         return 'admin';
+    }
+
+    /**
+     * User profile
+     */
+    public function profile()
+    {
+
+    }
+
+    /**
+     * User settings
+     */
+    public function settings()
+    {
+
     }
 }
