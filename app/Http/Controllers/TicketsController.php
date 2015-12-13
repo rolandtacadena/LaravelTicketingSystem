@@ -51,7 +51,6 @@ class TicketsController extends Controller
     public function show($id)
     {
         $ticket = Ticket::findOrFail($id);
-        $comments_for_ticket = $ticket->comments;
         return view('tickets.show', compact('ticket', 'comments_for_ticket'));
     }
 
@@ -74,7 +73,7 @@ class TicketsController extends Controller
      * @param TicketRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update($id, TicketRequest $request)
+    public function update($id, Request $request)
     {
         $ticket = Ticket::findOrFail($id);
         $ticket->update($request->all());
@@ -118,7 +117,7 @@ class TicketsController extends Controller
     public function tickets_by_type($type)
     {
         $tickets = Ticket::where('type', $type)->latest()->paginate(10);
-        $header =  $type . 'tickets';
+        $header =  $type . ' tickets';
         return view('tickets.index', compact('tickets', 'header'));
     }
 
@@ -131,7 +130,7 @@ class TicketsController extends Controller
     public function tickets_by_priority($priority)
     {
         $tickets = Ticket::where('priority', $priority)->latest()->paginate(10);
-        $header =  $priority . 'priority tickets';
+        $header =  $priority . ' priority tickets';
         return view('tickets.index', compact('tickets', 'header'));
     }
 
@@ -142,7 +141,11 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        return view('tickets.create');
+        if(Auth::user()->is_admin()) {
+            return view('tickets.create');
+        } else {
+            return redirect('/tickets')->with('flash_message', 'You must be a administrator to create a ticket.');
+        }
     }
 
     /**
@@ -160,5 +163,13 @@ class TicketsController extends Controller
             'flash_message' => 'You have successfully updated the ticket',
             'flash_message_important' => true
         ]);
+    }
+
+    public function destroy($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+        $this->authorize('delete-post', $ticket);
+        $ticket->delete();
+        return redirect('/tickets')->with('flash_message', 'You have successfully deleted the ticket');
     }
 }
