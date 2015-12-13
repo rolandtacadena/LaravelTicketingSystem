@@ -31,6 +31,7 @@ class CreateTicketsTable extends Migration
             $table->enum('status', ['open', 'close'])->default('open');
             $table->integer('dev_loe')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

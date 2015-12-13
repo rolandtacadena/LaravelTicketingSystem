@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ticket extends Model
 {
+
+    use SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -13,6 +16,13 @@ class Ticket extends Model
      * @var string
      */
     protected $table = 'tickets';
+
+    /**
+     * Implement SoftDeletes
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
