@@ -49,11 +49,14 @@
                     @endforeach
                     </tbody>
                 </table>
+                <!--filter navigation-->
+                @include('layouts._filternav')
+                <hr/>
                 {!! str_replace('/?', '?', $tickets->render()) !!}
+                <hr/>
             @else
                 <h4 class="subheader">Sorry there were no tickets returned.</h4>
             @endif
-
         </div>
     </div>
 @endsection

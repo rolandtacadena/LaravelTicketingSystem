@@ -33,6 +33,8 @@ class CommentsController extends Controller
         $comment->ticket()->associate($ticket);
         $comment->save();
 
+        session()->flash('flash_message', 'Comment added successfully');
+
         return redirect()->route('ticket_show', [$ticket]);
     }
 }
