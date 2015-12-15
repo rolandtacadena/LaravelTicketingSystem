@@ -6,8 +6,6 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('/user/profile', 'UsersController@profile');
     Route::get('/user/settings/', 'UsersController@settings');
     Route::get('/ticket/create', 'TicketsController@create');
-    Route::get('/ticket/{id}/edit', 'TicketsController@edit')
-        ->where('id', '[0-9]+');
     Route::put('/ticket/{id}', 'TicketsController@update')
         ->where('id', '[0-9]+');
     Route::post('/ticket/{id}', 'CommentsController@store')

@@ -1,5 +1,5 @@
 <fieldset>
-    <legend>{{ $formLabel }}</legend>
+    <legend><i class="icons {{ $ticket_action == 'create' ? 'fi-page-add' : 'fi-page-edit'}}"></i> {{ $formLabel }}</legend>
     <div class="row">
         <div class="large-12 columns">
             {!! Form::label('title', 'Ticket Title:') !!}

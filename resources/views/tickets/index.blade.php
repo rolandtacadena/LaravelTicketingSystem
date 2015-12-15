@@ -17,7 +17,7 @@
 
             @if(count($tickets) > 0)
                 <h4 class="subheader">{{ $header }}</h4>
-                <table>
+                <table id="ticket-list">
                     <thead>
                     <tr>
                         <th width="">Ticket #</th>

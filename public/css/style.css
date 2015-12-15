@@ -4,7 +4,6 @@ body {
 
 a:focus { color: red; }
 
-
 .row {
     max-width: 87rem;
 }
@@ -12,7 +11,8 @@ a:focus { color: red; }
 .general-right-column { padding-top: 20px; }
 
     #ticket-hirarchy .title { color: #333; font-weight: bold; padding: 7px 14px; }
-
+    #ticket-hirarchy .icons { font-size: 25px; color: #666; line-height: normal; }
+    #ticket-hirarchy li a { font-family: 'Source Sans Pro', sans-serif !important; }
     #backlogs, #ticket-special, #ticket-type { padding: 0; }
 
         #ticket-special {}
@@ -24,8 +24,9 @@ a:focus { color: red; }
 .ticket-prop {
     background: #e2e2e2;
     padding: 20px;
+    border-radius: 3px;
 }
-    .ticket-prop li { padding: 10px; }
+    .ticket-prop li { padding: 5px; font-size: 14px; }
         .ticket-prop li span  { font-weight: bold; }
 
         .errors {
@@ -43,6 +44,7 @@ a:focus { color: red; }
 
         .top-bar-section .right .user-role { background: #008CBA !important; }
 
+        .filter-navigation dd a { font-family: 'Source Sans Pro', sans-serif !important; }
         .filter-navigation dd:hover span,
         #backlogs li:hover span,
         #ticket-special li:hover span { background: #008CBA; color: #fff; }
@@ -64,6 +66,21 @@ a:focus { color: red; }
         }
 
         ul.pagination li.active { padding: 0 10px; }
+
+        .side-nav li:hover {
+            border-left: 4px solid #008CBA;
+        }
+    fieldset legend {
+        color: #333;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-weight: normal;
+    }
+
+    .ticket-title {
+        font-family: 'Source Sans Pro', sans-serif !important;
+    }
+
 
 footer {
     background: #333;

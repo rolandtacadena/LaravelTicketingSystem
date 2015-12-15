@@ -17,9 +17,10 @@
         <!-- include errors -->
         @include('errors.list')
 
-        <h5 class="subheader"><a href="{{ $ticket->id }}">#{{ $ticket->id . " " . $ticket->title }}</a></h5>
+        <h4 class="ticket-title subheader"><a href="{{ $ticket->id }}">#{{ $ticket->id . " " . $ticket->title }}</a></h4>
+        <hr/>
         @can('my-ticket', $ticket)
-            <p>-<b>Please note that this ticket belongs to you.</b></p>
+            <p> - <b>Please note that this ticket belongs to you.</b></p>
         @endcan
         <div class="ticket-prop">
             <ul>
@@ -56,7 +57,7 @@
         <div class="update-ticket">
             <div class="ticket-form">
                 {!! Form::model($ticket, ['method' => 'PUT', 'action' => ['TicketsController@update', $ticket->id]]) !!}
-                @include('tickets.form', ['submiButtonText' => 'Update Article', 'formLabel' => 'Edit Article'])
+                @include('tickets.form', ['submiButtonText' => 'Update Article', 'formLabel' => 'Edit Article', 'ticket_action' => 'edit'])
                 {!! Form::close() !!}
             </div>
         </div>
@@ -65,7 +66,7 @@
                 {!! Form::model($comment = new \App\Comment, ['action' => ['CommentsController@store', $ticket->id]]) !!}
                     {!! Form::hidden('ticket_action', 'comment') !!}
                     <fieldset>
-                        <legend>Add Comment</legend>
+                        <legend><i class="icons fi-page-add"></i> Add Comment</legend>
                         <div class="row">
                             <div class="large-12 columns">
                                 {!! Form::label('comment', 'Add Comment to this ticket:') !!}

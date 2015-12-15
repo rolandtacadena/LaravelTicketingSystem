@@ -3,7 +3,8 @@
     <!-- for backlogs -->
     <ul id="actions" class="side-nav">
         <li class="title">ACTIONS</li>
-        <li><a href="{{ url('/ticket/create') }}">Create A New Ticket</a></li>
+        <li><a href="{{ url('/ticket/create') }}">Create A New Ticket <i class="icons fi-page-add right"></i></a></li>
+
     </ul>
     <ul style="padding: 0;" class="side-nav"><li class="divider"></li></ul>
     <!-- for backlogs -->
