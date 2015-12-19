@@ -1,6 +1,5 @@
 <?php
 
-
 Route::group(['middleware' => ['auth']], function()
 {
     Route::get('/user/profile', 'UsersController@profile');
@@ -30,6 +29,7 @@ Route::get('/tickets/type/{type}', 'TicketsController@tickets_by_type')
     ->where('type', '[A-Za-z]+');
 Route::get('/tickets/priority/{priority}', 'TicketsController@tickets_by_priority')
     ->where('priority', '[A-Za-z]+');
+Route::get('user/{id}', 'UsersController@show_profile');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

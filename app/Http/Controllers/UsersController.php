@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
     /**
      * Initial page for admin
      */
-    public function admin()
+    public function show_profile($id)
     {
-        return 'admin';
+        $user = User::findOrFail($id);
+        return $user;
     }
 
     /**
@@ -22,7 +25,7 @@ class UsersController extends Controller
      */
     public function profile()
     {
-
+        return view('user.profile');
     }
 
     /**

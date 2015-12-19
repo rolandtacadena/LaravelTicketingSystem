@@ -17,43 +17,26 @@
         <!-- include errors -->
         @include('errors.list')
 
-        <h4 class="ticket-title subheader"><a href="{{ $ticket->id }}">#{{ $ticket->id . " " . $ticket->title }}</a></h4>
+        <h4 class="ticket-title subheader">#{{ $ticket->id . " - " . $ticket->title }}</h4>
+
         <hr/>
+
         @can('my-ticket', $ticket)
-            <p> - <b>Please note that this ticket belongs to you.</b></p>
+            <p> - <b>This ticket belongs to you.</b></p>
         @endcan
+
         <div class="ticket-prop">
             <ul>
                 <li>Ticket Description: <span>{{ $ticket->description }}</span></li>
-                <li>Ticket Type: <span>{{ $ticket->type }}</span></li>
-                <li>Ticket Priority: <span>{{ $ticket->priority }}</span></li>
-                <li>Ticket Dev Assigned: <span>{{ $ticket->user->name }}</span></li>
+                <li>Ticket Type: <span><a href="{{ url('/tickets/type/', $ticket->type) }}">{{ $ticket->type }}</a></span></li>
+                <li>Ticket Priority: <span><a href="{{ url('/tickets/priority', $ticket->priority) }}">{{ $ticket->priority }}</a></span></li>
+                <li>Ticket Dev Assigned: <span><a href="{{ url('/user', $ticket->user->id) }}">{{ $ticket->user->name }}</a></span></li>
                 <li>Ticket Dev LOE: <span>{{ $ticket->dev_loe }}</span></li>
-                <li>Ticket Status: <span>{{ $ticket->status }}</span></li>
-                <li>Ticket BAcklog: <span>{{ $ticket->backlog->name }}</span></li>
+                <li>Ticket Status: <span><a href="{{ url('/tickets/status', $ticket->status) }}">{{ $ticket->status }}</a></span></li>
+                <li>Ticket Backlog: <span><a href="{{ url('/tickets/backlog', $ticket->backlog->id) }}">{{ $ticket->backlog->name }}</a></span></li>
             </ul>
         </div>
         <hr/>
-        {{--<div class="ticket-hist">--}}
-            {{--<h5>Ticket History</h5>--}}
-            {{--<div class="hist">--}}
-                {{--<ul>--}}
-                    {{--<li>Changed owner to <i>rtacadena</i></li>--}}
-                    {{--<li>Set dev % complete to <i>100%</i></li>--}}
-                {{--</ul>--}}
-                {{--<hr/>--}}
-                {{--<ul>--}}
-                    {{--<li>Changed owner to <i>rtacadena</i></li>--}}
-                    {{--<li>Set dev % complete to <i>100%</i></li>--}}
-                {{--</ul>--}}
-                {{--<hr/>--}}
-                {{--<ul>--}}
-                    {{--<li>Changed owner to <i>rtacadena</i></li>--}}
-                    {{--<li>Set dev % complete to <i>100%</i></li>--}}
-                {{--</ul>--}}
-                {{--<hr/>--}}
-            {{--</div>--}}
-        {{--</div>--}}
         <div class="update-ticket">
             <div class="ticket-form">
                 {!! Form::model($ticket, ['method' => 'PUT', 'action' => ['TicketsController@update', $ticket->id]]) !!}

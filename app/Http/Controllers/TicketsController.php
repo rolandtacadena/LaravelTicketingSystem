@@ -79,7 +79,6 @@ class TicketsController extends Controller
         $ticket->update($request->all());
         session()->flash('flash_message', 'You have successfully updated the ticket');
         return redirect()->route('ticket_show', [$ticket]);
-
     }
 
     /**
@@ -159,7 +158,7 @@ class TicketsController extends Controller
         $input = $request->all();
         Ticket::create($input);
 
-        return redirect('/tickets/')->with([
+        return redirect('/tickets')->with([
             'flash_message' => 'You have successfully updated the ticket',
             'flash_message_important' => true
         ]);

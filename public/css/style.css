@@ -70,15 +70,14 @@ a:focus { color: red; }
         .side-nav li:hover {
             border-left: 4px solid #008CBA;
         }
-    fieldset legend {
+    fieldset legend, {
         color: #333;
         padding: 5px 10px;
         border-radius: 3px;
-        font-weight: normal;
     }
 
     .ticket-title {
-        font-family: 'Source Sans Pro', sans-serif !important;
+        font-family: 'Source Sans Pro', sans-serif !important; color: #008CBA;
     }
 
 
