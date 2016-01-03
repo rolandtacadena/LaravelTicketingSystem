@@ -8,6 +8,8 @@
         <!--filter navigation-->
         @include('layouts._filternav')
 
+        <hr/>
+
         <!-- include errors -->
         @include('errors.list')
 
