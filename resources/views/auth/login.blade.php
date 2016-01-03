@@ -10,7 +10,7 @@
 
 				<div class="panel-body">
 					<!-- Display Validation Errors -->
-					@include('common.errors')
+					@include('errors.list')
 
 					<!-- New Task Form -->
 					<form action="{{ url('/auth/login') }}" method="POST" class="form-horizontal">
