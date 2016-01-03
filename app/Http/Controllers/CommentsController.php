@@ -21,7 +21,7 @@ class CommentsController extends Controller
      */
     public function store($id, Request $request)
     {
-        // validate the comment
+        // validate the comment first
         $this->validate($request, [
             'comment' => 'required'
         ]);
@@ -35,6 +35,6 @@ class CommentsController extends Controller
 
         session()->flash('flash_message', 'Comment added successfully');
 
-        return redirect()->route('ticket_show', [$ticket]);
+        return redirect()->route('show_ticket', [$ticket]);
     }
 }
