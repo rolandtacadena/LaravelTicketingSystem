@@ -2,9 +2,7 @@
     <ul class="title-area">
         <li class="name">
             <h1>
-                <a href="{{ url('tickets') }}">
-                    TMS - Ticket Management System
-                </a>
+                {!! link_to_route('all_tickets', 'TMS - Ticket Management System') !!}
             </h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -13,28 +11,27 @@
         <ul class="right">
             <li class="divider"></li>
             @if (Auth::guest())
-                <li><a href="{{ url('/auth/register') }}">Register</a></li>
+                <li>{!! link_to_route('register_path', 'Register') !!}</li>
                 <li class="divider"></li>
-                <li><a href="{{ url('/auth/login') }}">Login</a></li>
+                <li>{!! link_to_route('login_path', 'Login') !!}</li>
                 <li class="divider"></li>
             @else
-                <li class="user-role">
-                    <a href="{{ url('/admin') }}">
-                        @if(Auth::user()->is_admin())
-                            {{ ucwords(Auth::user()->role) }}
-                        @endif
-                    </a></li>
+            @if(Auth::user()->is_admin())
+            <li class="user-role">
+                {!! link_to_route('admin_area', ucwords(Auth::user()->role)) !!}
+            </li>
+            @endif
                 <li class="divider"></li>
                 <li class="has-dropdown">
-                    <a href="">{{ Auth::user()->name }}</a>
+                    {!! link_to_route('show_profile', Auth::user()->name) !!}
                     <ul class="dropdown">
-                        <li><a href="{{ url('/user/profile') }}">Profile</a></li>
-                        <li><a href="{{ url('/user/settings/') }}">Settings</a></li>
+                        <li>{!! link_to_route('show_profile', 'Profile') !!}</li>
+                        <li>{!! link_to_route('user_settings', 'Settings') !!}</li>
                         <li class="divider"></li>
                     </ul>
                 </li>
                 <li class="divider"></li>
-                <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                <li>{!! link_to_route('logout_path', 'Logout') !!}</li>
                 <li class="divider"></li>
             @endif
         </ul>
