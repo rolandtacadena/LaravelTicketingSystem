@@ -16,7 +16,9 @@
             <hr/>
 
             @if(count($tickets) > 0)
-                <h4 class="subheader">{{ $header }}</h4>
+                <h4 class="subheader">{{ $header }} 
+                    <b style="font-size: 20px;">({{ count($tickets) }})</b>
+                </h4>
                 <table id="ticket-list">
                     <thead>
                     <tr>
@@ -34,14 +36,14 @@
                     <tbody>
                     @foreach($tickets as $ticket)
                         <tr>
-                            <td><a href="{{ url('/ticket', $ticket->id) }}">#{{ $ticket->id }}</a></td>
-                            <td><a href="{{ url('/ticket', $ticket->id) }}">{{ $ticket->title }}</a></td>
+                            <td>{!! link_to_route('show_ticket', $ticket->id, $ticket->id) !!}</td>
+                            <td>{!! link_to_route('show_ticket', $ticket->title, $ticket->id) !!}</td>
                             <td>{{ $ticket->description }}</td>
-                            <td><a href="{{ url('/tickets/user', $ticket->user_id) }}">{{ $ticket->user->name }}</a></td>
-                            <td><a href="{{ url('/tickets/backlog', $ticket->backlog_id) }}">{{ $ticket->backlog->name }}</a></td>
-                            <td><a href="{{ url('/tickets/type', $ticket->type) }}">{{ $ticket->type }}</a></td>
-                            <td><a href="{{ url('/tickets/priority', $ticket->priority) }}">{{ $ticket->priority }}</a></td>
-                            <td><a href="{{ url('/tickets/status', $ticket->status) }}">{{ $ticket->status }}</a></td>
+                            <td>{!! link_to_route('tickets_by_user', $ticket->user->name, $ticket->user_id) !!}</td>
+                            <td>{!! link_to_route('tickets_by_backlog', $ticket->backlog->name, $ticket->backlog_id) !!}</td>
+                            <td>{!! link_to_route('tickets_by_type', $ticket->type, $ticket->type) !!}</td>
+                            <td>{!! link_to_route('tickets_by_priority', $ticket->priority, $ticket->priority) !!}</td>
+                            <td>{!! link_to_route('tickets_by_status', $ticket->status, $ticket->status) !!}</td>
                             <td>{{ $ticket->dev_loe }}</td>
                         </tr>
                     @endforeach
@@ -50,7 +52,10 @@
                 <!--filter navigation-->
                 @include('layouts._filternav')
                 <hr/>
+
+                <!-- render pagination lnks -->
                 {!! str_replace('/?', '?', $tickets->render()) !!}
+
             @else
                 <h4 class="subheader">Sorry there were no tickets returned.</h4>
             @endif
