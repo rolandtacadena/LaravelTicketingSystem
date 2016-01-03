@@ -28,18 +28,18 @@
         <div class="ticket-prop">
             <ul>
                 <li>Ticket Description: <span>{{ $ticket->description }}</span></li>
-                <li>Ticket Type: <span><a href="{{ url('/tickets/type/', $ticket->type) }}">{{ $ticket->type }}</a></span></li>
-                <li>Ticket Priority: <span><a href="{{ url('/tickets/priority', $ticket->priority) }}">{{ $ticket->priority }}</a></span></li>
-                <li>Ticket Dev Assigned: <span><a href="{{ url('/user', $ticket->user->id) }}">{{ $ticket->user->name }}</a></span></li>
+                <li>Ticket Type: <span>{!! link_to_route('tickets_by_type', $ticket->type, $ticket->type) !!}</span></li>
+                <li>Ticket Priority: <span>{!! link_to_route('tickets_by_priority', $ticket->priority, $ticket->priority) !!}</span></li>
+                <li>Ticket Dev Assigned: <span>{!! link_to_route('tickets_by_user', $ticket->user->name, $ticket->user_id) !!}</span></li>
                 <li>Ticket Dev LOE: <span>{{ $ticket->dev_loe }}</span></li>
-                <li>Ticket Status: <span><a href="{{ url('/tickets/status', $ticket->status) }}">{{ $ticket->status }}</a></span></li>
-                <li>Ticket Backlog: <span><a href="{{ url('/tickets/backlog', $ticket->backlog->id) }}">{{ $ticket->backlog->name }}</a></span></li>
+                <li>Ticket Status: <span>{!! link_to_route('tickets_by_status', $ticket->status, $ticket->status) !!}</span></li>
+                <li>Ticket Backlog: <span>{!! link_to_route('tickets_by_backlog', $ticket->backlog->name, $ticket->backlog_id) !!}</span></li>
             </ul>
         </div>
         <hr/>
         <div class="update-ticket">
             <div class="ticket-form">
-                {!! Form::model($ticket, ['method' => 'PUT', 'action' => ['TicketsController@update', $ticket->id]]) !!}
+                {!! Form::model($ticket, ['method' => 'PATCH', 'action' => ['TicketsController@update', $ticket->id]]) !!}
                 @include('tickets.form', ['submiButtonText' => 'Update Article', 'formLabel' => 'Edit Article', 'ticket_action' => 'edit'])
                 {!! Form::close() !!}
             </div>
