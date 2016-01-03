@@ -14,10 +14,10 @@ class UsersController extends Controller
     /**
      * Initial page for admin
      */
-    public function show_profile($id)
+    public function show_profile()
     {
-        $user = User::findOrFail($id);
-        return $user;
+       
+        return 'My profile';
     }
 
     /**

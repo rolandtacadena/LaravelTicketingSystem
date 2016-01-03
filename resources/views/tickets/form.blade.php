@@ -14,7 +14,6 @@
         <div class="large-6 columns">
             {!! Form::label('type', 'Ticket Types:') !!}
             {!! Form::select('type', $t = array_combine($ticket_types, $ticket_types), null) !!}
-
         </div>
     </div>
     <div class="row">
