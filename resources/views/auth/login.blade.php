@@ -4,13 +4,15 @@
 	<div class="container">
 		<div class="col-sm-offset-2 col-sm-8">
 			<div class="panel panel-default">
+
+                <!-- Display Validation Errors -->
+                @include('errors.list')
+
 				<div class="panel-heading">
 					Login
 				</div>
 
 				<div class="panel-body">
-					<!-- Display Validation Errors -->
-					@include('errors.list')
 
 					<!-- New Task Form -->
 					<form action="{{ url('/auth/login') }}" method="POST" class="form-horizontal">
@@ -37,7 +39,7 @@
 						<!-- Login Button -->
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-6">
-								<button type="submit" class="btn btn-default">
+								<button type="submit" class="btn tiny">
 									<i class="fa fa-btn fa-sign-in"></i>Login
 								</button>
 							</div>

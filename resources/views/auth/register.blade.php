@@ -4,13 +4,15 @@
 	<div class="container">
 		<div class="col-sm-offset-2 col-sm-8">
 			<div class="panel panel-default">
+
+                <!-- Display Validation Errors -->
+                @include('errors.list')
+
 				<div class="panel-heading">
 					Register
 				</div>
 
 				<div class="panel-body">
-					<!-- Display Validation Errors -->
-					@include('errors.list')
 
 					<!-- New Task Form -->
 					<form action="{{ url('/auth/register') }}" method="POST" class="form-horizontal">
