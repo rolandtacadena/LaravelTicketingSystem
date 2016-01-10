@@ -35,14 +35,10 @@ Route::group(['middleware' => ['auth']], function()
 });
 
 // global routes (no need for authentication)
-// Route::get('/', [
-//     'as' => 'all_tickets',
-//     'uses' => 'TicketsController@all'
-// ]);
-
-Route::get('/', function() {
-    return view('welcome');
-});
+ Route::get('/', [
+     'as' => 'all_tickets',
+     'uses' => 'TicketsController@all'
+ ]);
 
 Route::get('/tickets', [
     'as' => 'all_tickets',
@@ -97,4 +93,5 @@ Route::get('auth/register', [
     'as' => 'register_path',
     'uses' => 'Auth\AuthController@getRegister'
 ]);
+
 Route::post('auth/register', 'Auth\AuthController@postRegister');
