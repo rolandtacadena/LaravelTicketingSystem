@@ -138,7 +138,7 @@ This is free software distributed under the terms of the MIT license
 <a name="feature7"></a>
 ##How Laravel Ticketing System Site look like
 
-<a target="_blank" href="http://imgur.com/a/xiyiG">View Screenshots of the project</a>
+<a target="_blank" href="http://imgur.com/a/Beta8">View Screenshots of the project</a>
 
 ----
 
