@@ -50,7 +50,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('ticket_priorities', $ticket->displayPriorities());
             $view->with('backlogs', Backlog::all('id', 'name'));
             $view->with('users', User::all('id', 'name'));
+        });
 
+        view()->composer(['user.profile'], function($view) {
+            $view->with('user_all_tickets', Auth::user()->tickets()->paginate(10));
         });
     }
 }
