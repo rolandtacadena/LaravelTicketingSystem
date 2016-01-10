@@ -175,8 +175,8 @@ class TicketsController extends Controller
         $input = $request->all();
         $this->ticket->create($input);
 
-        return redirect('/tickets')->with([
-            'flash_message' => 'You have successfully updated the ticket',
+        return redirect('/user/profile')->with([
+            'flash_message' => 'You have successfully created a ticket',
             'flash_message_important' => true
         ]);
     }
