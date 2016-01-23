@@ -30,7 +30,7 @@ class TicketsController extends Controller
      */
     public function all()
     {
-        $tickets = $this->ticket->orderBy('id', 'asc')->paginate();
+        $tickets = $this->ticket->orderBy('id', 'asc')->paginate(10);
         $header = 'All Tickets';
         return view('tickets.index', compact('tickets', 'header'));
     }
