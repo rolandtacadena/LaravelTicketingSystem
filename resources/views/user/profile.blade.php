@@ -3,11 +3,24 @@
 @section('content')
 
     <div class="row">
-        <div class="large-3 columns profile-container-left">
+        <div class="large-2 columns profile-container-left">
             <div class="profile">
                 <div class="profile-img">
-                    <img src="{{ URL::asset('img/default-img-profile.png') }}" alt=""/>
+                    @if(!Auth::user()->profile_photo)
+                        <img src="{{ URL::asset('img/user/profile-pics/default-img-profile.png') }}" alt=""/>
+                    @else
+                        <img src="{{ URL::asset('img/user/profile-pics/' . Auth::user()->profile_photo) }}" alt=""/>
+                    @endif
                 </div>
+                @if(!Auth::user()->profile_photo)
+                    <div class="upload-photo">
+                        <form method="post" action="{{ url('user/profile/upload-photo') }}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <input type="file" name="profile-pic"/>
+                            <input class="button tiny" type="submit" value="Upload Photo"/>
+                        </form>
+                    </div>
+                @endif
                 <div class="profile-details">
                     <div class="personal-info">
                         <ul>
@@ -24,7 +37,10 @@
                 </div>
             </div>
         </div>
-        <div class="large-9 columns profile-container-right">
+        <div class="large-10 columns profile-container-right">
+
+            <!-- include errors -->
+            @include('errors.list')
 
             <!-- flash message for created ticket -->
             @include('partials.flash')
