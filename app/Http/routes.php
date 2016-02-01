@@ -7,6 +7,8 @@ Route::group(['middleware' => ['auth']], function()
         'uses' => 'UsersController@show_profile'
     ]);
 
+    Route::post('user/profile/upload-photo', 'UsersController@upload_profile_photo');
+
     Route::get('/user/settings/', [
         'as' => 'user_settings',
         'uses' => 'UsersController@settings'
