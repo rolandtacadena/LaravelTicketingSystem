@@ -1,6 +1,5 @@
 <?php
 
-// routes that needs authentication
 Route::group(['middleware' => ['auth']], function()
 {
     Route::get('user/profile', [
@@ -34,7 +33,6 @@ Route::group(['middleware' => ['auth']], function()
 
 });
 
-// global routes (no need for authentication)
  Route::get('/', [
      'as' => 'all_tickets',
      'uses' => 'TicketsController@all'
